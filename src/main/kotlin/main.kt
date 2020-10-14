@@ -6,8 +6,8 @@ const val secondsInDay = hoursInDay * secondsInHour
 
 fun main() {
 
-    println("Пользователь был в сети ${agoToText(119)}")
-    println("Пользователь был в сети ${agoToText(120)}")
+    println("Пользователь был в сети ${agoToText(59)}")
+//    println("Пользователь был в сети ${agoToText(120)}")
 
 //    for (i in 0..50) println("$i ${endHours(i)}")
 //    for (i in 0..200) println("$i ${endMinutes(i)}")
@@ -17,7 +17,7 @@ fun main() {
 fun agoToText(seconds: Int): String {
     return when (true) {
         seconds in 0..secondsInMinute -> "только что"
-        seconds in secondsInMinute - 1..secondsInHour -> {
+        seconds in secondsInMinute + 1..secondsInHour -> {
             val minutesAgo = seconds / secondsInMinute; "$minutesAgo ${endMinutes(minutesAgo)} назад"
         }
         seconds in secondsInHour + 1..secondsInDay -> {
